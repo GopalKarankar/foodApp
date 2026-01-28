@@ -47,7 +47,7 @@ export default function GoogleLoginButton() {
                 }
                 
                 
-                const res = await fetch("http://localhost:3000/api/user",{
+                const res = await fetch("https://food-app-lg35.vercel.app/api/user",{
                     method:"POST",
                     body:JSON.stringify(body),
                 });
@@ -92,7 +92,7 @@ export default function GoogleLoginButton() {
 
                 // console.log(userStorage?._id);
 
-                const res = await fetch("http://localhost:3000/api/cart/"+userStorage?._id);
+                const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
 
                 const cartData = await res.json();
 
@@ -119,7 +119,7 @@ export default function GoogleLoginButton() {
 
                 // console.log(userStorage?._id);
 
-                const res = await fetch("http://localhost:3000/api/order/"+userStorage?._id);
+                const res = await fetch("https://food-app-lg35.vercel.app/api/order/"+userStorage?._id);
 
                 const orderData = await res.json();
 

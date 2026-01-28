@@ -42,7 +42,7 @@ const DeliverySignUp = () => {
     
             // console.log(toUpload);
     
-            const res = await fetch("http://localhost:3000/api/deliverypartner/signup",{
+            const res = await fetch("https://food-app-lg35.vercel.app/api/deliverypartner/signup",{
                 method:"POST",
                 body:JSON.stringify(details),
             });

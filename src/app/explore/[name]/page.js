@@ -50,7 +50,7 @@ const Page = () => {
       
       setIsLoadingResto(true);
 
-      const res = await fetch("http://localhost:3000/api/customer/" + restoQuery);
+      const res = await fetch("https://food-app-lg35.vercel.app/api/customer/" + restoQuery);
       const data = await res.json();
 
       // console.log(data);
@@ -116,7 +116,7 @@ const Page = () => {
       
       localStorage.setItem("cartStore", JSON.stringify(updatedCart));
 
-      await fetch("http://localhost:3000/api/cart", {
+      await fetch("https://food-app-lg35.vercel.app/api/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload), // ✅ no _id sent
@@ -139,7 +139,7 @@ const Page = () => {
 
 //       localStorage.setItem("cartStore", JSON.stringify(updatedCart));
 
-//       const data = await fetch(`http://localhost:3000/api/cart/${id}`, {
+//       const data = await fetch(`https://food-app-lg35.vercel.app/api/cart/${id}`, {
 //         method: "DELETE",
 //       });
 

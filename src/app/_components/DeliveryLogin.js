@@ -40,7 +40,7 @@ const DeliveryLogin = () => {
 
         try {
             
-            const res = await fetch("http://localhost:3000/api/deliverypartner/login",{
+            const res = await fetch("https://food-app-lg35.vercel.app/api/deliverypartner/login",{
                 method:"POST",
                 body:JSON.stringify(userInfo),
             });

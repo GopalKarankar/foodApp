@@ -22,7 +22,7 @@ const FoodItemList = () => {
     
             const resto_id = restaurantUser?._id;
     
-            const res = await fetch(`http://localhost:3000/api/foods/${resto_id}`);
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/foods/${resto_id}`);
     
             const data = await res?.json();
     
@@ -45,7 +45,7 @@ const FoodItemList = () => {
     
             if (window.confirm("Are you sure you want to delete this ?")) {
     
-                const res = await fetch(`http://localhost:3000/api/foods/${id}`,{
+                const res = await fetch(`https://food-app-lg35.vercel.app/api/foods/${id}`,{
                     method:"delete"
                 });
     

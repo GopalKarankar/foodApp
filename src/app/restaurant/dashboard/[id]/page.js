@@ -50,7 +50,7 @@ const router = useRouter();
 
         try {
             
-            const res = await fetch(`http://localhost:3000/api/foods/edit/${argmt.id}`);
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/foods/edit/${argmt.id}`);
             
             const info = await res.json();
             
@@ -75,7 +75,7 @@ const router = useRouter();
             
             // console.log(itemDetails);
             
-            const res = await fetch(`http://localhost:3000/api/foods/edit/${argmt.id}`,{
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/foods/edit/${argmt.id}`,{
                 method:"PUT",
                 body:JSON.stringify({itemName:itemDetails.itemName , price:itemDetails.price, imgLink:itemDetails.imgLink, description:itemDetails.desc }),
             });

@@ -30,7 +30,7 @@ const Page = () => {
     try {
       setIsLoadingNames(true);
 
-      const res = await fetch("http://localhost:3000/api/customer/locations");
+      const res = await fetch("https://food-app-lg35.vercel.app/api/customer/locations");
       const data = await res.json();
       // console.log(data);
       setLocations(data);
@@ -45,7 +45,7 @@ const Page = () => {
     try {
       setIsLoadingRests(true);
 
-      let url = "http://localhost:3000/api/customer";
+      let url = "https://food-app-lg35.vercel.app/api/customer";
 
       if (params?.type === "locs") {
         url = url + "?location=" + params?.state;

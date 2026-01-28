@@ -38,7 +38,7 @@ const Page = () => {
             
             if (userLoggedIn) {
 
-            const res = await fetch(`http://localhost:3000/api/order?userId=${userLoggedIn?._id}`);
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/order?userId=${userLoggedIn?._id}`);
     
             const data = await res.json();
     
@@ -64,7 +64,7 @@ const Page = () => {
 
             // console.log(cancelObj.state.orderId,cancelObj.state.itemId);
 
-            const res = await fetch(`http://localhost:3000/api/order`,{
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/order`,{
                 method:"DELETE",
                 body:JSON.stringify({ 
                                         state:cancelObj.type,
@@ -83,7 +83,7 @@ const Page = () => {
             
         } else if(cancelObj.type==="complete"){
 
-            const res = await fetch(`http://localhost:3000/api/order`,{
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/order`,{
                 method:"DELETE",
                 body:JSON.stringify({ 
                                         state:cancelObj.type,

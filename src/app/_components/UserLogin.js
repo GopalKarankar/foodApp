@@ -43,7 +43,7 @@ const UserLogin = () => {
     const handleUpload = async () =>{
         try {
             
-            const res = await fetch("http://localhost:3000/api/user/login",{
+            const res = await fetch("https://food-app-lg35.vercel.app/api/user/login",{
                 method:"POST",
                 body:JSON.stringify(userInfo),
             });
@@ -78,7 +78,7 @@ const UserLogin = () => {
 
                 // console.log(userStorage?._id);
 
-                const res = await fetch("http://localhost:3000/api/cart/"+userStorage?._id);
+                const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
 
                 const cartData = await res.json();
 
@@ -103,7 +103,7 @@ const UserLogin = () => {
 
                 // console.log(userStorage?._id);
 
-                const res = await fetch("http://localhost:3000/api/order/"+userStorage?._id);
+                const res = await fetch("https://food-app-lg35.vercel.app/api/order/"+userStorage?._id);
 
                 const orderData = await res.json();
 

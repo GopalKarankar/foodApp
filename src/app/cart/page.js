@@ -39,7 +39,7 @@ const Page = () => {
     const loadCartMDBsetLS = async () =>{
         
         if (userStorage?._id) {
-            const res = await fetch("http://localhost:3000/api/cart");
+            const res = await fetch("https://food-app-lg35.vercel.app/api/cart");
 
             const data = await res.json();
 
@@ -61,7 +61,7 @@ const Page = () => {
 
             localStorage.setItem("cartStore",JSON.stringify(updatedCart));  
                             
-            const res = await fetch(`http://localhost:3000/api/cart/${id}`,{
+            const res = await fetch(`https://food-app-lg35.vercel.app/api/cart/${id}`,{
                 method:"DELETE"
             });
 

@@ -55,7 +55,7 @@ const RestaurantSignUp = () => {
                 setPasswordError(false);
                 setIsLoading(true);
 
-                const resp = await fetch("http://localhost:3000/api/restaurant",{
+                const resp = await fetch("https://food-app-lg35.vercel.app/api/restaurant",{
                     method:"POST",
                     body:JSON.stringify(details),
                 });

@@ -41,7 +41,7 @@ const Page = () => {
     
             // console.log(userLoggedIn?.city);
 
-            let resDelivery = await fetch("http://localhost:3000/api/deliverypartner/"+userLoggedIn?.city);
+            let resDelivery = await fetch("https://food-app-lg35.vercel.app/api/deliverypartner/"+userLoggedIn?.city);
                 
             resDelivery = await resDelivery.json();
     
@@ -71,7 +71,7 @@ const Page = () => {
     
             // console.log(body);
     
-            const res = await fetch("http://localhost:3000/api/order",{
+            const res = await fetch("https://food-app-lg35.vercel.app/api/order",{
                 method:"POST",
                 body:JSON.stringify(body),
             });

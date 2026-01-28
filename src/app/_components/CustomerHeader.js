@@ -45,7 +45,7 @@ const CustomerHeader = ({cartData2}) => {
 
                 // console.log(userStorage?._id);
 
-                const res = await fetch("http://localhost:3000/api/cart/"+userStorage?._id);
+                const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
 
                 const cartData = await res.json();
 

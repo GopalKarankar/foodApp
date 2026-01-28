@@ -33,7 +33,7 @@ const RestaurantLogin = () => {
 
         try {
             
-            const res = await fetch("http://localhost:3000/api/restaurant",{
+            const res = await fetch("https://food-app-lg35.vercel.app/api/restaurant",{
                 method:"POST",
                 body:JSON.stringify({
                     email:info.email,
