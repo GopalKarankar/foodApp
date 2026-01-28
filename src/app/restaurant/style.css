@@ -1,0 +1,25 @@
+/* .header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+} */
+
+.input-error{
+    color:red;
+}
+
+.header-wrapper ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    list-style-type: none;
+}
+
+/* .header-wrapper ul li{
+} */
+
+.header-wrapper ul li a{
+    text-decoration: none;
+}
+

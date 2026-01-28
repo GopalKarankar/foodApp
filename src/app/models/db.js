@@ -1,0 +1,1 @@
+export const connectStr = `mongodb+srv://${process.env.NEXT_PUBLIC_MONGOOSE_username}:${process.env.NEXT_PUBLIC_MONGOOSE_password}@cluster0.k2sh156.mongodb.net/?appName=Cluster0`;

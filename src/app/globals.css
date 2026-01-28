@@ -1,0 +1,384 @@
+/* @import "tailwindcss"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*, body, html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* .header-wrapper{
+    color: #2C2C2C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color:#2ECC71;
+} */
+
+
+.input-error{
+    color:red;
+}
+
+/* .header-wrapper ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    list-style-type: none;
+} */
+
+/* .header-wrapper ul li{
+} */
+
+/* .header-wrapper ul li a{
+  color: white;
+    text-decoration: none;
+}
+
+.header-wrapper ul li{
+  color: white;
+    text-decoration: none;
+}
+
+
+.header-wrapper .logo h1{
+  color: white;
+    text-decoration: none;
+}
+
+
+.header-wrapper .logo a{
+    text-decoration: none;
+} */
+
+
+
+.footer-wrapper{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    padding: 20px;
+    background-color:#2ECC71;
+    
+  }
+
+  
+/* .food-item-wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-top-right-radius:20px;
+    border-bottom-left-radius:20px;
+} */
+
+
+.input-wrapper{
+      position: relative;
+}
+
+.input-field{
+    width: 200px;
+    height: 30px;
+}
+
+/* button{
+  background-color: #2ECC71;
+  border: 1px solid #2ECC71;
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+} */
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+
+.container-panel {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.container-panel-table {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.container-panel *{
+  color: black;
+}
+
+.container-panel-table *{
+  color: black;
+}
+
+
+.white-text{
+  color: white;
+  text-align: center;
+}
+
+.button-link{
+  /* border: 0; */
+  cursor: pointer;
+  /* background-color: transparent; */
+  /* color: blue; */
+  /* margin: 20px; */
+}
+
+table, th, td{
+  border:5px solid white;
+  border-collapse: collapse;
+  padding: 15px;
+  background-color: #2ECC71;
+}
+
+table td button{
+ margin: 5px;
+ color: black;
+}
+
+.location-wrapper{
+  position: relative;  
+  display: inline-block;
+}
+
+.location-options-wrapper{
+  position: absolute;
+}
+
+.location-options{
+  text-align: center;
+  list-style-type: none;
+  cursor: pointer;
+  background-color: #2ECC71;
+  padding: 10px;
+  border-radius:10px;
+}
+
+.location-options:hover{
+  background-color: white;
+}
+
+.parent-page{
+ background-image: url("/restro.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  height: 100vh;
+}
+
+/* .restaurant-list-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+} */
+
+/* .restaurant-wrapper{
+  width: 200px;
+  background-color: #2ECC71;
+  padding: 20px;
+  border-top-right-radius:20px;
+  border-bottom-left-radius:20px;
+  word-break: break-all;
+} */
+
+.restaurant-wrapper * {
+  color: white;  
+}
+
+/* .list-item{
+  margin-bottom: 30px;
+} */
+
+.order-button{
+  margin: 20px;
+}
+
+/* .align-arrow{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+
+.align-arrow-child{
+  width: 200px;
+  position: absolute;
+  right: 10px;
+  top:30px;
+  background-color: #2ECC71;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px grey;
+  z-index: 999;
+}
+
+
+.align-arrow-child a{
+  display: block;
+  padding: 10px;
+}
+
+.align-arrow-child a:first-child{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.align-arrow-child a:last-child{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+.align-arrow-child a:hover{
+  color: #2ECC71;
+  background-color: #fff;
+}
+
+.align-arrow-child div:hover{
+  color: #2ECC71;
+  background-color: #fff;
+} */
+
+/* .main-page-banner{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+} */
+
+/* .align-flex{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.align-flex *{
+  color: white;
+  background-color: #2ECC71;
+} */
+
+
+.align-flex-NoCol{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.align-flex-NoCol-Gap{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  gap: 20px;
+}
+
+/* .total-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom:20px ;
+} */
+
+.centerize{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.exploreBtn{
+  border:3px solid white;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.exploreBtn:hover {
+  border:3px solid #2ECC71;
+  background-color: white;
+  color: #2ECC71;
+  border-top-right-radius:10px;
+  border-bottom-left-radius:10px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+@media(max-width:500px){
+
+  .child-nav{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100vh;
+    background-color: #2ECC71;
+    position: absolute;
+    justify-content: start;
+    padding: 10px 0;
+    z-index: 998;
+    top: 70px;
+    left: -100%;
+  }
+
+  .loginSignUp{    
+    top: 35px;
+    right: -120px;
+    border: 2px solid white;
+  }
+
+
+}
+
+@media(min-width:500px) {
+
+  .hamburger{
+    display: none;
+  }
+  
+}
+
+
+.hamburger{
+  border:2px solid white;
+  border-radius: 20%;
+}
+
+
+.active {
+  color: #2ECC71;
+  background-color:white;
+  padding: 5px;
+  border-radius: 10px;
+}
