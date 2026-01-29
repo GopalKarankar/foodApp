@@ -113,7 +113,7 @@ const Page = () => {
                             return <div className=' bg-[#2ECC71] text-white p-5 flex flex-row justify-center rounded-tr-2xl rounded-bl-2xl'  key={key}>
                                          
                                             <div className='item-block-1 flex justify-center flex-col items-center  '>
-                                                <img src={item.imgLink}  alt="Image" />
+                                                <img src={item.imgLink}  alt="Image" className="imgDim" />
                                             </div>
             
                                             <div className='item-block-2 flex justify-center flex-col flex-wrap gap-4 p-5 '>
