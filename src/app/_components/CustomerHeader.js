@@ -43,18 +43,18 @@ const CustomerHeader = ({cartData2}) => {
 
             if (userStorage) {
 
-                console.log(userStorage?._id);
+                // console.log(userStorage?._id);
 
                 const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
 
                 const cartData = await res.json();
 
-                console.log("cartData",cartData);
+                // console.log("cartData",cartData);
 
                 if (cartData) {
 
                     localStorage.setItem("cartStore",JSON.stringify(cartData));  
-                    console.log("setcartls");    
+                    // console.log("setcartls");    
 
                 } else {
                     
@@ -72,7 +72,7 @@ const CustomerHeader = ({cartData2}) => {
             
             // setCartInfo(JSON.parse(localStorage.getItem("cartStore")) || []);            
         
-                    console.log("loadCartLS");    
+                    // console.log("loadCartLS");    
 
 
             if (localStorage.getItem("normalUser")) {
