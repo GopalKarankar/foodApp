@@ -33,8 +33,8 @@ const CustomerHeader = ({cartData2}) => {
 
     useEffect(() => {
             loadUserLS();
-            loadCartLS();
             loadOrderLS();
+            loadCartLS();
     }, [cartData2]);
 
 
@@ -43,13 +43,13 @@ const CustomerHeader = ({cartData2}) => {
 
             if (userStorage) {
 
-                // console.log(userStorage?._id);
+                console.log(userStorage?._id);
 
                 const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
 
                 const cartData = await res.json();
 
-                // console.log(cartData);
+                console.log("cartData",cartData);
 
                 if (cartData) {
 
@@ -106,7 +106,7 @@ const CustomerHeader = ({cartData2}) => {
         try {
             
             // const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore")) || [];
-            const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore")) || [];
+            const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore"));
 
             setCartInfo(cartInfoTmp);       
                  

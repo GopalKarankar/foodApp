@@ -39,9 +39,13 @@ const Page = () => {
     const loadCartMDBsetLS = async () =>{
         
         if (userStorage?._id) {
-            const res = await fetch("https://food-app-lg35.vercel.app/api/cart");
+
+            const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
 
             const data = await res.json();
+
+            setCartChange(data);
+            // console.log("cartData",cartData);
 
             localStorage.setItem("cartStore",JSON.stringify(data));                        
         }

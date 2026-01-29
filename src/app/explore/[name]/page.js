@@ -30,13 +30,15 @@ const Page = () => {
 
   const [IsLoadingResto, setIsLoadingResto] = useState(false);
 
+  const [isLoadingCart, setIsLoadingCart] = useState(false);
+
   const [cartChange, setCartChange] = useState();
 
   
   useEffect(() => {
     loadRestaurantDetails();
-    loadCartLS();
     loadUserLS();
+    loadCartLS();
   }, [restoQuery]);
 
   // keep cartIDList synced (based on itemId)
@@ -67,7 +69,8 @@ const Page = () => {
 
   const loadCartLS = () => {
     try {
-      const cartData = JSON.parse(localStorage.getItem("cartStore")) || [];
+      const cartData = JSON.parse(localStorage.getItem("cartStore"));
+      // const cartData = JSON.parse(localStorage.getItem("cartStore")) || [];
       setCartInfo(cartData);
     } catch (error) {
       console.log(error);
@@ -116,11 +119,15 @@ const Page = () => {
       
       localStorage.setItem("cartStore", JSON.stringify(updatedCart));
 
+      setIsLoadingCart(true);
+
       await fetch("https://food-app-lg35.vercel.app/api/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload), // ✅ no _id sent
       });
+
+      setIsLoadingCart(false);
 
     } catch (error) {
       console.log(error);
@@ -192,8 +199,8 @@ const Page = () => {
                 return (
                   <div className=" flex justify-center flex-row max-w-[400px] bg-[#2ECC71] [&>*]:text-white p-4  rounded-tr-2xl    gap-[20px]  rounded-bl-2xl break-words " key={key}>
                   
-                    <div>
-                      <img src={item.imgLink} alt="item-Image" />                    
+                    <div className=" flex justify-center items-center" >
+                      <img src={item.imgLink} alt="item-Image" className="imgDim "  />                    
                     </div>
 
                     <div className="flex flex-col justify-around gap-2" >
@@ -201,8 +208,9 @@ const Page = () => {
                       <div>Rs {item.price}</div>
                       <div className="description">{item.description}</div>
                       <br />
-
-                        <button className="text-white bg-[#2ECC71] border border-white rounded-[10px] w-[200px] h-[30px] hover:bg-white hover:text-[#2ECC71] " onClick={() => addToCart(item)}>Add to Cart</button>
+                    
+                        <button className="relative text-white bg-[#2ECC71] border border-white rounded-[10px] w-[200px] h-[30px] hover:bg-white hover:text-[#2ECC71] " onClick={() => addToCart(item)}>{isLoadingCart ? <Preloader/> : "Add to Cart" }</button>
+                    
 
                       {/* {inCart ? (
                         <button className="text-white bg-[#2ECC71] border border-white rounded-[10px] w-[200px] h-[30px] hover:bg-white hover:text-[#2ECC71] " onClick={() => removeFromCart(item._id)}>

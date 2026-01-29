@@ -382,3 +382,8 @@ table td button{
   padding: 5px;
   border-radius: 10px;
 }
+
+.imgDim{
+  width: 150px;
+  height: 150px;
+}
