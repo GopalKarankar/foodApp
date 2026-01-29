@@ -101,7 +101,7 @@ const CustomerHeader = ({cartData2}) => {
     // Load  cart local storage
     const loadUserLS =  () =>{
 
-                    console.log("loadUserLS");    
+                    // console.log("loadUserLS");    
 
         try {
             
