@@ -23,8 +23,10 @@ const Page = () => {
     const loadLoggedInLS = () =>{
 
         try {
-            const userData = JSON.parse(localStorage.getItem("normalUser"))
-            setUserLoggedIn(userData);
+            if (typeof window !== 'undefined') {
+                const userData = JSON.parse(localStorage.getItem("normalUser"))
+                setUserLoggedIn(userData);
+            }
             
         } catch (error) {
             console.log(error);
@@ -42,7 +44,9 @@ const Page = () => {
     
             const data = await res.json();
     
-            localStorage.setItem("orderStore",JSON.stringify(data));
+            if (typeof window !== 'undefined') {
+                localStorage.setItem("orderStore",JSON.stringify(data));
+            }
 
             setOrderDetails(
                 data?.filter((order)=>{

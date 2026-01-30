@@ -60,7 +60,9 @@ const Page = () => {
 
       setRestaurants(data);
 
-      setUserLoggedIn(JSON.parse(localStorage.getItem("normalUser")));
+      if (typeof window !== 'undefined') {
+        setUserLoggedIn(JSON.parse(localStorage.getItem("normalUser")));
+      }
 
       setIsLoadingRests(false);
     } catch (error) {
@@ -71,7 +73,9 @@ const Page = () => {
   // Load  cart local storage
   const loadCartLS = () => {
     try {
-      setCartInfo(JSON.parse(localStorage.getItem("cartStore")) || []);
+      if (typeof window !== 'undefined') {
+        setCartInfo(JSON.parse(localStorage.getItem("cartStore")) || []);
+      }
     } catch (error) {
       console.log(error);
     }

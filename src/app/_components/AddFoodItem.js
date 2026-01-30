@@ -40,10 +40,12 @@ const AddFoodItem = ({setAddItem}) => {
     
             let resto_id;
     
-            const restaurantData = JSON.parse(localStorage.getItem("restaurantUser"));
+            if (typeof window !== 'undefined') {
+                const restaurantData = JSON.parse(localStorage.getItem("restaurantUser"));
     
-            if (restaurantData) {
-                resto_id = restaurantData._id;
+                if (restaurantData) {
+                    resto_id = restaurantData._id;
+                }
             }
     
             // console.log(resto_id);

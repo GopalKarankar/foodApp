@@ -41,7 +41,7 @@ const CustomerHeader = ({cartData2}) => {
        
     const setCartLS = async () =>{
 
-            if (userStorage) {
+            if (userStorage && typeof window !== 'undefined') {
 
                 // console.log(userStorage?._id);
 
@@ -70,26 +70,28 @@ const CustomerHeader = ({cartData2}) => {
 
         try {
             
-            // setCartInfo(JSON.parse(localStorage.getItem("cartStore")) || []);            
-        
-                    // console.log("loadCartLS");    
-
-
-            if (localStorage.getItem("normalUser")) {
-
-                setUserStorage(JSON.parse(localStorage.getItem("normalUser")));  
-
-            }else if(localStorage.getItem("deliveryUser")){
-
-                setUserStorage(JSON.parse(localStorage.getItem("deliveryUser")));  
-
-            }else if(localStorage.getItem("restaurantUser")){
-
-                setUserStorage(JSON.parse(localStorage.getItem("restaurantUser")));  
-
-            }
+            if (typeof window !== 'undefined') {
+                // setCartInfo(JSON.parse(localStorage.getItem("cartStore")) || []);            
             
-            setCartLS();
+                        // console.log("loadCartLS");    
+
+
+                if (localStorage.getItem("normalUser")) {
+
+                    setUserStorage(JSON.parse(localStorage.getItem("normalUser")));  
+
+                }else if(localStorage.getItem("deliveryUser")){
+
+                    setUserStorage(JSON.parse(localStorage.getItem("deliveryUser")));  
+
+                }else if(localStorage.getItem("restaurantUser")){
+
+                    setUserStorage(JSON.parse(localStorage.getItem("restaurantUser")));  
+
+                }
+                
+                setCartLS();
+            }
 
         } catch (error) {
             console.log(error);
@@ -104,11 +106,12 @@ const CustomerHeader = ({cartData2}) => {
                     // console.log("loadUserLS");    
 
         try {
-            
-            // const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore")) || [];
-            const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore"));
+            if (typeof window !== 'undefined') {
+                // const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore")) || [];
+                const cartInfoTmp = JSON.parse(localStorage.getItem("cartStore"));
 
-            setCartInfo(cartInfoTmp);       
+                setCartInfo(cartInfoTmp);
+            }       
                  
         } catch (error) {
             console.log(error);
@@ -121,10 +124,11 @@ const CustomerHeader = ({cartData2}) => {
     const loadOrderLS =  () =>{
 
         try {
-            
-            const ordersInfo = JSON.parse(localStorage.getItem("orderStore")) || [];
+            if (typeof window !== 'undefined') {
+                const ordersInfo = JSON.parse(localStorage.getItem("orderStore")) || [];
 
-            setOrderStorage(ordersInfo);       
+                setOrderStorage(ordersInfo);
+            }       
                  
         } catch (error) {
             console.log(error);
@@ -139,7 +143,7 @@ const CustomerHeader = ({cartData2}) => {
 
         try {
             
-            if (localStorage.getItem("normalUser")) {
+            if (typeof window !== 'undefined' && localStorage.getItem("normalUser")) {
 
                 localStorage.removeItem("normalUser");
                 localStorage.removeItem("cartStore");
@@ -154,7 +158,7 @@ const CustomerHeader = ({cartData2}) => {
             
                 router.push("/userAuth");
                 
-            }else if(localStorage.getItem("deliveryUser")){
+            }else if(typeof window !== 'undefined' && localStorage.getItem("deliveryUser")){
 
                 localStorage.removeItem("deliveryUser");
                 localStorage.removeItem("cartStore");
@@ -167,7 +171,7 @@ const CustomerHeader = ({cartData2}) => {
             
                 router.push("/deliverypartner");
 
-            }else if(localStorage.getItem("restaurantUser")){
+            }else if(typeof window !== 'undefined' && localStorage.getItem("restaurantUser")){
 
                 localStorage.removeItem("restaurantUser");
                 localStorage.removeItem("cartStore");
@@ -181,11 +185,6 @@ const CustomerHeader = ({cartData2}) => {
                 router.push("/restaurant");
 
             }
-
-
-            // setUserStorage(null);
-
-            // router.push("/userAuth");
         
         } catch (error) {
             console.log(error);

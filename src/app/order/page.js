@@ -15,8 +15,10 @@ const Page = () => {
 
 
     useEffect(() => {
-     setCartStorage(JSON.parse(localStorage.getItem("cartStore")));
-    setUserLoggedIn(JSON.parse(localStorage.getItem("normalUser")));
+        if (typeof window !== 'undefined') {
+            setCartStorage(JSON.parse(localStorage.getItem("cartStore")));
+            setUserLoggedIn(JSON.parse(localStorage.getItem("normalUser")));
+        }
     }, []);
     
 
