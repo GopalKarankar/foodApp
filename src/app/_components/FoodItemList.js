@@ -6,21 +6,34 @@ import { useRouter } from 'next/navigation';
 const FoodItemList = () => {
 
     const [foodItems, setFoodItems] = useState([]);
+    const [restaurantUser] = useState(() => {
+        try {
+            if (typeof window !== 'undefined') {
+                return JSON.parse(localStorage.getItem("restaurantUser")) || null;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return null;
+    });
 
     const router = useRouter();
 
     useEffect(() => {
         loadFoodItems();
-    },[]);
+    },[restaurantUser]);
 
 
     const loadFoodItems = async () =>{
 
         try {
             
-            const restaurantUser = JSON.parse(localStorage.getItem("restaurantUser")); 
-    
-            const resto_id = restaurantUser?._id;
+            if (!restaurantUser) {
+                router.push('/restaurant');
+                return;
+            }
+
+            const resto_id = restaurantUser._id;
     
             const res = await fetch(`https://food-app-lg35.vercel.app/api/foods/${resto_id}`);
     

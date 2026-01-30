@@ -6,33 +6,32 @@ import RestaurantFooter from '../_components/RestaurantFooter';
 
 const Page = () => {
 
-    const [userLoggedIn, setUserLoggedIn] = useState();
-    const [orderDetails, setOrderDetails] = useState();
+    const [userLoggedIn, setUserLoggedIn] = useState(() => {
+        try {
+            if (typeof window !== 'undefined') {
+                return JSON.parse(localStorage.getItem("normalUser")) || null;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return null;
+    });
 
-
-    useEffect(() => {
-        loadLoggedInLS();
-    }, []);
+    const [orderDetails, setOrderDetails] = useState(() => {
+        try {
+            if (typeof window !== 'undefined') {
+                return JSON.parse(localStorage.getItem("orderStore")) || [];
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return [];
+    });
 
 
     useEffect(() => {
         getMyOrders();
     }, [userLoggedIn]);
-
-
-    const loadLoggedInLS = () =>{
-
-        try {
-            if (typeof window !== 'undefined') {
-                const userData = JSON.parse(localStorage.getItem("normalUser"))
-                setUserLoggedIn(userData);
-            }
-            
-        } catch (error) {
-            console.log(error);
-        }
-        
-    }
 
     const getMyOrders = async () =>{
 

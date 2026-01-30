@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -6,23 +8,31 @@ import "./../globals.css"
 
 const RestaurantHeader = () => {
 
-        const [details, setDetails] = useState();
+        const [details, setDetails] = useState(() => {
+            try {
+                if (typeof window !== 'undefined') {
+                    const d = localStorage.getItem("restaurantUser");
+                    return d ? JSON.parse(d) : null;
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            return null;
+        });
         const router = useRouter();
         const pathName = usePathname();
         // console.log(pathName);
 
         useEffect(() => {
-               const data = localStorage.getItem("restaurantUser");
-               
-               if (!data) {
-                    router.push("/restaurant");  
-            } else if(pathName == "/restaurant" ) {
-                    router.push("/restaurant/dashboard");
-               }else{
-                    setDetails(JSON.parse(data));
-               }
-    
-        }, []);
+            if (!details) {
+                router.push("/restaurant");
+                return;
+            }
+
+            if (pathName === "/restaurant") {
+                router.push("/restaurant/dashboard");
+            }
+        }, [details, pathName, router]);
     
         const logout = () =>{
 
