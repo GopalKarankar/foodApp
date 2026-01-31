@@ -123,12 +123,14 @@ const Page = () => {
 
       setIsLoadingCart(true);
 
-      await fetch("https://food-app-lg35.vercel.app/api/cart", {
+    const data =  await fetch("https://food-app-lg35.vercel.app/api/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload), // ✅ no _id sent
         cache:"no-store",
       });
+
+      setCartChange(data);
 
       setIsLoadingCart(false);
 
@@ -163,7 +165,7 @@ const Page = () => {
   return (
     <div className="parent-page" >
 
-      <CustomerHeader cartData2={cartInfo} />
+      <CustomerHeader cartData2={cartChange} />
 
         {/* <center>
           <h1 className="white-text" >{foodparam}</h1>
