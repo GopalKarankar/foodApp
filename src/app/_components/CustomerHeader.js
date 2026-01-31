@@ -45,7 +45,9 @@ const CustomerHeader = ({cartData2}) => {
 
                 // console.log(userStorage?._id);
 
-                const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id);
+                const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id,{
+                    cache:"no-store,"
+                });
 
                 const cartData = await res.json();
 
