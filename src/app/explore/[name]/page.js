@@ -52,7 +52,9 @@ const Page = () => {
       
       setIsLoadingResto(true);
 
-      const res = await fetch("https://food-app-lg35.vercel.app/api/customer/" + restoQuery);
+      const res = await fetch("https://food-app-lg35.vercel.app/api/customer/" + restoQuery,{
+                    cache:"no-store",
+                });
       const data = await res.json();
 
       // console.log(data);
@@ -125,6 +127,7 @@ const Page = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload), // ✅ no _id sent
+        cache:"no-store",
       });
 
       setIsLoadingCart(false);
