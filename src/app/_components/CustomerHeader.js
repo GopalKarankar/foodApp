@@ -10,7 +10,6 @@ import { PowerIcon } from 'lucide-react';
 import { signOut } from 'firebase/auth';
 import { auth } from '../models/firebase';
 import { TextAlignJustify } from 'lucide-react';
-import Preloader from './Preloader';
 
 const CustomerHeader = ({cartData2}) => {
     
@@ -20,7 +19,6 @@ const CustomerHeader = ({cartData2}) => {
     const [cartInfo, setCartInfo] = useState();
     const [userStorage, setUserStorage] = useState();
     const [orderStorage, setOrderStorage] = useState();
-    const [isLoadingCart, setIsLoadingCart] = useState(false);
 
     const [rotateD, setRotateD] = useState("rotate(0deg)");
 
@@ -47,8 +45,6 @@ const CustomerHeader = ({cartData2}) => {
 
                 // console.log(userStorage?._id);
 
-                setIsLoadingCart(true);
-
                 const res = await fetch("https://food-app-lg35.vercel.app/api/cart/"+userStorage?._id,{
                     cache:"no-store",
                 });
@@ -67,8 +63,6 @@ const CustomerHeader = ({cartData2}) => {
                     alert("Couldn`t retrive cart data.");
 
                 }                
-
-                setIsLoadingCart(false);
             } 
     }
 
@@ -261,7 +255,7 @@ const CustomerHeader = ({cartData2}) => {
                 {userStorage?.userType === "user" && <>
 
                     <li className='align-arrow flex justify-center items-center ' >
-                        <Link className={`${location === "/cart" ?  "active" : ""} no-underline text-white`}  href="/cart">Cart ({isLoadingCart ? <Preloader/> : (cartInfo?.length || 0) }) </Link>
+                        <Link className={`${location === "/cart" ?  "active" : ""} no-underline text-white`}  href="/cart">Cart ({cartInfo?.length || 0})</Link>
                     </li>
 
                     <li className='align-arrow flex justify-center items-center ' >
