@@ -255,7 +255,7 @@ const CustomerHeader = ({cartData2}) => {
                 {userStorage?.userType === "user" && <>
 
                     <li className='align-arrow flex justify-center items-center ' >
-                        <Link className={`${location === "/cart" ?  "active" : ""} no-underline text-white`}  href="/cart">Cart ({cartInfo?.length})</Link>
+                        <Link className={`${location === "/cart" ?  "active" : ""} no-underline text-white`}  href="/cart">Cart ({cartInfo?.length || 0})</Link>
                     </li>
 
                     <li className='align-arrow flex justify-center items-center ' >
